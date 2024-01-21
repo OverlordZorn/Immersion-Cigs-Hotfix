@@ -1,6 +1,6 @@
 name = "Immersion Cigs Hotfix";
 
-author = "Mr. Zorn";
+author = "Rebel / Facel - Hotfix by Mr. Zorn";
 
 picture         = "mod-hf.paa";                                                                                                                        // Picture displayed from the expansions menu. Optimal size is 2048x1024
 hideName        = "false";                                                                                                                          // Hide the extension name
@@ -11,7 +11,7 @@ logo            = "mod-hf.paa";                                                 
 logoOver        = "mod-hf.paa";                                                                                                     // When the mouse is over, in the main menu 128x128
 
 tooltip         = "Immersion Cigs Hotfix";
-action          = "http://discord.chornivoron.net/";                                                                                                // Website URL, that can accessed from the expansions menu 
+action          = "https://github.com/PulsarNeutronStar/Immersion-Cigs-Hotfix";                                                                                                // Website URL, that can accessed from the expansions menu 
 actionName      = "Github of Hotfix";                                                                                                                        // label of button/tooltip in extension menu
 
 // Color used for DLC stripes and backgrounds (RGBA)
