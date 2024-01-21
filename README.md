@@ -9,3 +9,8 @@ This is an effort to provide some minor QoL changes as a seperate Mod that will 
 
 - When taking a new Cigarette from the box, it will try to put the cig first in the goggles/face slot, ifn't, then the NVG slot and only as a last resort, it will put it in the inventory.
 - Allows to light someone else's cig when its in the NVG slot.
+
+
+### Note
+
+This hotfix currently only worksin conjunction with ace
