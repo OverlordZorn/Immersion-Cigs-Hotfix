@@ -12,5 +12,4 @@ This is an effort to provide some minor QoL changes as a seperate Mod that will 
 
 
 ### Note
-
-This hotfix currently only worksin conjunction with ace
+This hotfix currently only works in conjunction with ace.
