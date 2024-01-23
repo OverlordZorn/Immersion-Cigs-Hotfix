@@ -30,7 +30,7 @@ if !(isClass (configFile >> "CfgPatches" >> "ace_interact_menu")) then {
     ["CAManBase", 0,["ACE_Head","murshun_cigs_start_someones_cig"]] call ace_interact_menu_fnc_removeActionFromClass;
 
     // Adds the new Interaction with the additional Check regarding HMD/NVG Slot
-    private _action = ["murshun_cigs_start_someones_cig", localize "STR_murshun_cigs_start_someones_cig", "murshun_cigs\UI\light_cig.paa", {
+    private _action = ["murshun_cigs_start_someones_cig_fix", localize "STR_murshun_cigs_start_someones_cig", "murshun_cigs\UI\light_cig.paa", {
         params ["_target", "_player"];
         [_target, _player] spawn murshun_cigs_fnc_start_cig_their
     }, {
