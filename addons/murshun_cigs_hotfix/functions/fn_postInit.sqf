@@ -1,6 +1,7 @@
 if (!hasInterface) exitWith {};
-/*
-private _addVanillaActions = {
+
+private _addVanillaActionsHMD = {
+        /*
         player addAction [localize "STR_murshun_cigs_start_cig", {
             params ["_target", "_caller"];
             [_caller] spawn murshun_cigs_fnc_start_cig_your
@@ -13,24 +14,22 @@ private _addVanillaActions = {
             params ["_target", "_caller"];
             [_caller] spawn murshun_cigs_fnc_take_cig_from_pack
         }, nil, 0, false, true, "", "if (_target != player) exitWith {false}; 'murshun_cigs_cigpack' in (magazineCargo uniformContainer player) || 'murshun_cigs_cigpack' in (magazineCargo vestContainer player)", 5, false];
+        */
         player addAction [localize "STR_murshun_cigs_start_someones_cig", {
             params ["_target", "_caller"];
             [cursorObject, _caller] spawn murshun_cigs_fnc_start_cig_their
-        }, nil, 0, false, true, "", "if !(cursorObject isKindOf 'Man') exitWith {false}; ((goggles cursorObject) in murshun_cigs_cigsArray) && !(cursorObject getVariable ['murshun_cigs_cigLitUp', false]) && (alive cursorObject)", 5, false];
+        }, nil, 0, false, true, "", "if !(cursorObject isKindOf 'Man') exitWith {false}; ((hmd cursorObject) in murshun_cigs_cigsArray) && !(cursorObject getVariable ['murshun_cigs_cigLitUp', false]) && (alive cursorObject)", 5, false];
     };
-*/
+
 
 if !(isClass (configFile >> "CfgPatches" >> "ace_interact_menu")) then {
-    call _addVanillaActions;
+    call _addVanillaActionsHMD;
 
     player addEventHandler ["Respawn", _addVanillaActions];
 } else {
 
-    // removes the original Interaction first
-    ["CAManBase", 0,["ACE_Head","murshun_cigs_start_someones_cig"]] call ace_interact_menu_fnc_removeActionFromClass;
-
-    // Adds the new Interaction with the additional Check regarding HMD/NVG Slot
-    private _action = ["murshun_cigs_start_someones_cig_fix", localize "STR_murshun_cigs_start_someones_cig", "murshun_cigs\UI\light_cig.paa", {
+    // Adds the new Interaction with the exclusive check regarding HMD/NVG Slot
+    private _action = ["murshun_cigs_start_someones_cig_hmd", localize "STR_murshun_cigs_start_someones_cig", "murshun_cigs\UI\light_cig.paa", {
         params ["_target", "_player"];
         [_target, _player] spawn murshun_cigs_fnc_start_cig_their
     }, {
