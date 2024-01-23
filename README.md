@@ -13,3 +13,7 @@ This is an effort to provide some minor QoL changes as a seperate Mod that will 
 
 ### Note
 This hotfix currently only works in conjunction with ace.
+
+
+## Steam Workshop Page
+[https://steamcommunity.com/sharedfiles/filedetails/?id=3146026772](https://steamcommunity.com/sharedfiles/filedetails/?id=3146026772)
