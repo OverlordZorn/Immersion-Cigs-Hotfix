@@ -24,7 +24,7 @@ exclude = [
 [version]
 major = 1 # Overrides path when set
 minor = 0
-patch = 0
+patch = 2
 git_hash = 4 # Default: 8
 
 
