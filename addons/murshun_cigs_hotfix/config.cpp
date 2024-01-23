@@ -31,11 +31,11 @@ class CfgPatches {
 
 class CfgFunctions
 {
-    class murshun_cigs
+    class murshun_cigs_hotfix
     {
         class functions
         {
-            file = "murshun_cigs_hotfix\functions";
+            file = "z\zrn_cig_hotfix\addons\murshun_cigs_hotfix\functions";
             class preInit
             {
                 preInit = 1;
