@@ -26,6 +26,7 @@ if !(isClass (configFile >> "CfgPatches" >> "ace_interact_menu")) then {
     call _addVanillaActionsHMD;
 
     player addEventHandler ["Respawn", _addVanillaActionsHMD];
+    
 } else {
 
     // Adds the new Interaction with the exclusive check regarding HMD/NVG Slot

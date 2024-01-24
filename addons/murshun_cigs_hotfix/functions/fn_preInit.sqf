@@ -1,4 +1,4 @@
-/*
+// de-scheduled
 murshun_cigs_fnc_smoke = {
     params ["_unit", "_type"];
 
@@ -35,11 +35,15 @@ murshun_cigs_fnc_smoke = {
 
     _source attachTo [_unit, [0, 0.06, 0], "head"];
 
-    sleep 0.4;
-
-    deleteVehicle _source;
+    _code = {
+        params ["_source"];
+        deleteVehicle _source;
+    };
+    [_code, [_source], 0.5] call CBA_fnc_waitAndExecute;
 };
 
+// TODO When more awake !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! recursive function call maybe?
+/*
 murshun_cigs_fnc_anim = {
     params ["_unit", "_gestureAnimation", "_playTimeSeconds"];
 
@@ -65,7 +69,9 @@ murshun_cigs_fnc_anim = {
         // [_unit, _animation] remoteExec ["switchMove"];
     };
 };
+*/
 
+// no scheduler needed
 murshun_cigs_removeItemFromMag = {
     params ["_player", "_mag"];
 
@@ -78,16 +84,18 @@ murshun_cigs_removeItemFromMag = {
     if ((_oldMag select 1) > 1) then {
         _player addMagazine [_mag, (_oldMag select 1) - 1];
     } else {
-        [format ["%1 is now empty.", getText (configFile >> "CfgMagazines" >> _mag >> "displayName")], 2.5, _player] spawn ace_common_fnc_displayTextStructured;
+        [format ["%1 is now empty.", getText (configFile >> "CfgMagazines" >> _mag >> "displayName")], 2.5, _player] call ace_common_fnc_displayTextStructured;
     };
 };
 
+// no scheduler needed
 murshun_cigs_playSound = {
     params ["_unit", "_class"];
 
     [_unit, _class] remoteExec ["say3D"];
 };
 
+/*
 murshun_cigs_fnc_useItem = {
     params ["_unit", "_player"];
 
@@ -108,10 +116,11 @@ murshun_cigs_fnc_useItem = {
             [_unit, "murshun_cigs_matches_01"] call murshun_cigs_playSound;
         };
     };
-
     true
 };
+*/
 
+/* Need to unschedule murshun_cigs_fnc_start_cig first
 murshun_cigs_fnc_start_cig_your = {
     params ["_player"];
 
@@ -119,17 +128,22 @@ murshun_cigs_fnc_start_cig_your = {
 
     [_player] spawn murshun_cigs_fnc_start_cig;
 };
+*/
 
+// needs to be unscheduled -- remoteExec => remoteExecCall
+/*
 murshun_cigs_fnc_start_cig_their = {
     params ["_unit", "_player"];
 
     if !([_unit, _player] call murshun_cigs_fnc_useItem) exitWith {};
-
     _player playActionNow "PutDown";
-
     [_unit] remoteExec ["murshun_cigs_fnc_start_cig", _unit];
 };
+*/
 
+// needs to be unscheduled
+// TODO remoteexec -> RemoteExecCall
+/*
 murshun_cigs_fnc_start_cig = {
     params ["_unit"];
 
@@ -173,9 +187,9 @@ murshun_cigs_fnc_start_cig = {
     private _cigType = getText (_cigClass >> "immersion_cigs_type");
 
     sleep (3.5 + random 2);
-    [_unit, _cigType] remoteExec ["murshun_cigs_fnc_smoke"];
+    [_unit, _cigType] remoteExecCall ["murshun_cigs_fnc_smoke"];
     sleep (1 + random 1);
-    [_unit, _cigType] remoteExec ["murshun_cigs_fnc_smoke"];
+    [_unit, _cigType] remoteExecCall ["murshun_cigs_fnc_smoke"];
 
     private _maxTime = getNumber (_cigClass >> "immersion_cigs_maxTime");
 
@@ -234,7 +248,7 @@ murshun_cigs_fnc_start_cig = {
 
         _cigTime = _cigTime + _time;
 
-        [_unit, _cigType] remoteExec ["murshun_cigs_fnc_smoke"];
+        [_unit, _cigType] remoteExecCall ["murshun_cigs_fnc_smoke"];
         _unit setFatigue (getFatigue _unit + 0.01);
 
         private _timeToSleep = time + _time;
@@ -281,13 +295,15 @@ murshun_cigs_fnc_start_cig = {
         };
     };
 };
+*/
 
+// Doesnt need to be scheduled
 murshun_cigs_fnc_stop_cig = {
     params ["_player"];
-
     _player setVariable ["murshun_cigs_cigLitUp", false, true];
 };
-*/
+
+// Doesnt need to be scheduled
 murshun_cigs_fnc_take_cig_from_pack = {
     params ["_player"];
 
@@ -306,15 +322,17 @@ murshun_cigs_fnc_take_cig_from_pack = {
         };
     };
 };
-/*
+
+// ### Non Functions - Checks and Arrays
+// Doesnt need to be scheduled
 if !(isClass (configFile >> "CfgPatches" >> "ace_common")) then {
     ace_common_fnc_displayTextStructured = {
         params ["_string"];
-
         hintSilent _string;
     };
 };
 
+// Doesnt need to be scheduled
 if (isNil "immersion_cigs_giveItemsInSP") then {
     immersion_cigs_giveItemsInSP = true;
 };
@@ -335,7 +353,6 @@ immersion_cigs_canStopSmoking = {
 
 immersion_cigs_canTakeCigFromPack = {
     params ["_unit"];
-
     "murshun_cigs_cigpack" in (magazines _unit)
 };
 */
