@@ -42,8 +42,6 @@ murshun_cigs_fnc_smoke = {
     [_code, [_source], 0.5] call CBA_fnc_waitAndExecute;
 };
 
-// TODO When more awake !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! recursive function call maybe?
-/*
 murshun_cigs_fnc_anim = {
     params ["_unit", "_gestureAnimation", "_playTimeSeconds"];
 
@@ -57,19 +55,37 @@ murshun_cigs_fnc_anim = {
 
     _unit forceWalk true;
 
+    _code = {
+        params ["_unit","_gestureAnimation"];d
+        _unit playActionNow _gestureAnimation;
+    };
+    private _handle = [_code, 0, [_unit,_gestureAnimation]] call CBA_fnc_addPerFrameHandler;
+
+/* old code
     while {time < _time + _playTimeSeconds} do {
         _unit playActionNow _gestureAnimation;
 
         sleep (1/60);
     };
-
-    _unit forceWalk false;
-
-    if (alive _unit && !(_unit getVariable ["ACE_isUnconscious", false])) then {
-        // [_unit, _animation] remoteExec ["switchMove"];
-    };
-};
 */
+    _condition = {
+        params ["_unit", "_handle","_time","_playTimeSeconds"];
+        time > _time + _playTimeSeconds;
+    };
+
+    _code = {
+        params ["_unit", "_handle","_time","_playTimeSeconds"];
+        [_handle] call CBA_fnc_removePerFrameHandler;
+
+        _unit forceWalk false;
+        if (alive _unit && !(_unit getVariable ["ACE_isUnconscious", false])) then {
+            // [_unit, _animation] remoteExec ["switchMove"];
+        };
+    };    
+
+    [_condition, _code, [_unit, _handle,_time, _playTimeSeconds]] call CBA_fnc_waitUntilAndExecute;
+};
+
 
 // no scheduler needed
 murshun_cigs_removeItemFromMag = {
@@ -182,7 +198,7 @@ murshun_cigs_fnc_start_cig = {
     if (_unit getVariable ["murshun_cigs_cigLitUp", false]) exitWith {};
     _unit setVariable ["murshun_cigs_cigLitUp", true, true];
 
-    [_unit, "immersion_cigs_cig_in", 3] spawn murshun_cigs_fnc_anim;
+    [_unit, "immersion_cigs_cig_in", 3] call murshun_cigs_fnc_anim;
 
     private _cigType = getText (_cigClass >> "immersion_cigs_type");
 
@@ -280,7 +296,7 @@ murshun_cigs_fnc_start_cig = {
         if (_shouldExitLoop) exitWith {};
     };
 
-    [_unit, "immersion_cigs_cig_out", 1] spawn murshun_cigs_fnc_anim;
+    [_unit, "immersion_cigs_cig_out", 1] call murshun_cigs_fnc_anim;
 
     _unit setVariable ["murshun_cigs_cigLitUp", false, true];
 
