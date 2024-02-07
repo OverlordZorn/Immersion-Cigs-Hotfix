@@ -36,6 +36,7 @@ class CfgFunctions
         class functions
         {
             file = "z\zrn_cig_hotfix\addons\murshun_cigs_hotfix\functions";
+            tag = "murshun_cigs";
             class preInit
             {
                 preInit = 1;
@@ -46,6 +47,16 @@ class CfgFunctions
                 postInit = 1;
                 recompile = 1;
             };
+            class smoke {};
+            class anim {};
+            class removeItemFromMag {};
+            class playSound {};
+            class useItem {};
+            class start_cig_your {};
+            class start_cig_their {};
+            class start_cig {};
+            class stop_cig {};
+            class take_cig_from_pack {};
         };
     };
 };
