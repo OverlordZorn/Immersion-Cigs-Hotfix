@@ -31,12 +31,14 @@ class CfgPatches {
 
 class CfgFunctions
 {
-    class murshun_cigs_hotfix
+    class murshun_cigs
     {
         class functions
         {
             file = "z\zrn_cig_hotfix\addons\murshun_cigs_hotfix\functions";
+
             tag = "murshun_cigs";
+            
             class preInit
             {
                 preInit = 1;
