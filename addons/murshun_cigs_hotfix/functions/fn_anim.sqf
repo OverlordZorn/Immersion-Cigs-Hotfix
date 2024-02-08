@@ -22,7 +22,7 @@ while {time < _time + _playTimeSeconds} do {
 
 // Adds pfEH
 _code = {
-    params ["_unit","_gestureAnimation"];
+    _this#0 params ["_unit","_gestureAnimation"];
     _unit playActionNow _gestureAnimation;
 };
 private _handle = [_code, 0, [_unit,_gestureAnimation]] call CBA_fnc_addPerFrameHandler;
