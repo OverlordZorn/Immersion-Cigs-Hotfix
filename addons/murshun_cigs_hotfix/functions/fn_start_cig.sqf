@@ -51,7 +51,7 @@ private _code = {
 [_code, [_unit, _cigType], _sleep1] call CBA_fnc_waitAndExecute;
 [_code, [_unit, _cigType], _sleep2] call CBA_fnc_waitAndExecute;
 
-_code {
+_code = {
     params ["_unit","_cigTime","_gogglesCurrent","_hmdCurrent","_cigTypeGear","_cigClass","_cigType"];
 
     private _maxTime = getNumber (_cigClass >> "immersion_cigs_maxTime");
@@ -62,4 +62,5 @@ _code {
     [_unit,_cigTime,_gogglesCurrent,_hmdCurrent,_cigTypeGear,_cigClass,_cigType,_maxTime] call murshun_cigs_fnc_start_cig_recursive;
 
 };
+
 [_code, [_unit,_cigTime,_gogglesCurrent,_hmdCurrent,_cigTypeGear,_cigClass,_cigType], _sleep2] call CBA_fnc_waitAndExecute;
