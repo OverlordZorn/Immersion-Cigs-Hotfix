@@ -52,9 +52,13 @@ class CfgFunctions
             class removeItemFromMag {};
             class playSound {};
             class useItem {};
+
             class start_cig_your {};
             class start_cig_their {};
+
             class start_cig {};
+            class start_cig_recursive {};
+
             class stop_cig {};
             class take_cig_from_pack {};
         };

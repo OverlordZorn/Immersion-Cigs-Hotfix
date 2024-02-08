@@ -1,3 +1,5 @@
+// murshun_cigs_fnc_anim
+
 params ["_unit", "_gestureAnimation", "_playTimeSeconds"];
 
 if (!alive _unit) exitWith {};
