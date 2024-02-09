@@ -34,8 +34,12 @@ _fog setDropInterval 0.005;
 
 _source attachTo [_unit, [0, 0.06, 0], "head"];
 
+diag_log "[Cigs-Hotfix] Smoke Source Created";
+
+
 _code = {
     params ["_source"];
     deleteVehicle _source;
+    diag_log "[Cigs-Hotfix] Smoke Source Deleted";
 };
 [_code, [_source], 0.5] call CBA_fnc_waitAndExecute;
