@@ -1,7 +1,9 @@
 # Immersion Cigs Hotfix
 
 This is a Mod for ArmA 3 that is supposed to run in dependency with Rebel/Facel's:
+
 [Immersion Cigs - Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=753946944)
+
 [Immersion Cigs - Git Hub](https://github.com/rebelvg/immersion_cigs/tree/master)
 
 As the original Author [Rebel](https://github.com/rebelvg) stated, they are currently not in the position to maintain this project. 
