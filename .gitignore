@@ -12,3 +12,4 @@ build_launch.bat
 build_release --nozip.bat
 build_release.bat
 workshop video.mp4
+/releases/
