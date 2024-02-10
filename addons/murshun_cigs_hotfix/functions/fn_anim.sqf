@@ -26,7 +26,6 @@ _code = {
     _unit playActionNow _gestureAnimation;
 };
 private _handle = [_code, 0, [_unit,_gestureAnimation]] call CBA_fnc_addPerFrameHandler;
-diag_log "[Cigs-Hotfix] pfeh added";
 
 // Removed pfEH
 _condition = {
@@ -42,7 +41,6 @@ _code = {
     if (alive _unit && !(_unit getVariable ["ACE_isUnconscious", false])) then {
         // [_unit, _animation] remoteExec ["switchMove"];
     };
-    diag_log "[Cigs-Hotfix] pfEH removed"
 };    
 
 [_condition, _code, [_unit, _handle,_time, _playTimeSeconds]] call CBA_fnc_waitUntilAndExecute;

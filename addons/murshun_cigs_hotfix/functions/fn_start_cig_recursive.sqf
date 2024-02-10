@@ -1,7 +1,5 @@
 params ["_unit","_cigTime","_gogglesCurrent","_hmdCurrent","_cigTypeGear","_cigClass","_cigType","_maxTime"];
 
-diag_log "[Cigs-Hotfix] start-cig-recursive start";
-diag_log format ["[Cigs-Hotfix] start-cig-recursive _this: %1", _this];
 
 
 switch (_cigTypeGear) do {
@@ -71,9 +69,6 @@ private _shouldExitLoop = false;
         private _condition2 = (_cigTypeGear == "GOGGLES" && _gogglesCurrent != goggles _unit);
         private _condition3 = (_cigTypeGear == "HMD" && _hmdCurrent != hmd _unit);
 
-        if (_condition1) then {diag_log format ["[Cigs-Hotfix] start-cig-recursive condition 1: %1", _condition1 ]; };
-        if (_condition2) then {diag_log format ["[Cigs-Hotfix] start-cig-recursive condition 2: %1", _condition2 ]; };
-        if (_condition3) then {diag_log format ["[Cigs-Hotfix] start-cig-recursive condition 3: %1", _condition3 ]; };
 
         _condition1 ||_condition2 || _condition3
 
@@ -81,8 +76,6 @@ private _shouldExitLoop = false;
     {
         params ["_unit","_cigTime","_gogglesCurrent","_hmdCurrent","_cigTypeGear","_cigClass","_cigType","_maxTime","_timeToSleep"];
 
-        diag_log format ["[Cigs-Hotfix] start-cig-recursive exit condition detected: %1", ""];
-        diag_log format ["[Cigs-Hotfix] start-cig-recursive _this: %1", _this];
 
 
         [_unit, "immersion_cigs_cig_out", 1] call murshun_cigs_fnc_anim;
@@ -104,8 +97,6 @@ private _shouldExitLoop = false;
     _timeToSleep,      // _timeout time in sec. 
 
     {
-        diag_log "[Cigs-Hotfix] start-cig-recursive no exit detected -> restart";
-        diag_log format ["[Cigs-Hotfix] start-cig-recursive _this: %1", _this];
         params ["_unit","_cigTime","_gogglesCurrent","_hmdCurrent","_cigTypeGear","_cigClass","_cigType","_maxTime","_timeToSleep"];
 
 

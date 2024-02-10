@@ -1,4 +1,3 @@
-// murshun_cigs_fnc_start_cig
 params ["_unit"];
 
 if (!(local _unit)) exitWith {};
