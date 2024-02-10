@@ -1,4 +1,3 @@
-// de-scheduled
 params ["_unit", "_type"];
 
 private _multiplier = 1;
