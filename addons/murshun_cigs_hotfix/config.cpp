@@ -46,7 +46,7 @@ class CfgFunctions
             };
             class postInit
             {
-                postInit = 1;
+                preInit = 1;
                 recompile = 1;
             };
             class smoke {};
