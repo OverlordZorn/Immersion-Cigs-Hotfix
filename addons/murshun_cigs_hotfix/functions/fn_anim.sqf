@@ -13,13 +13,6 @@ private _time = time;
 _unit forceWalk true;
 
 
-/* old code
-while {time < _time + _playTimeSeconds} do {
-    _unit playActionNow _gestureAnimation;
-    sleep (1/60);
-};
-*/
-
 // Adds pfEH
 _code = {
     _this#0 params ["_unit","_gestureAnimation"];
