@@ -1,5 +1,3 @@
-// no scheduler needed
-// murshun_cigs_fnc_removeItemFromMag
 params ["_player", "_mag"];
 
 private _matchesMags = magazinesAmmo _player select {_x select 0 == _mag};
