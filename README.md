@@ -17,8 +17,8 @@ This is an effort to provide some minor QoL changes as a seperate Mod that will 
 
 
 ### Note
-This hotfix currently only works in conjunction with ace.
-
+This hotfix is only tested in conjunction with ace.
+Might work without ace but idk.
 
 ## Steam Workshop Page
 [https://steamcommunity.com/sharedfiles/filedetails/?id=3146026772](https://steamcommunity.com/sharedfiles/filedetails/?id=3146026772)
