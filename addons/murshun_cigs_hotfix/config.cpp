@@ -158,61 +158,20 @@ class CfgVehicles
     */
 };
 
-/*
 class CfgMagazines {
     class CA_Magazine;
     class murshun_cigs_matches: CA_Magazine {
-        author = "$STR_murshun_cigs_author";
-        scope = 2;
-
-        displayName = "$STR_murshun_cigs_matches";
-        descriptionShort = "$STR_murshun_cigs_matches_descr";
-        model = "\murshun_cigs\matches.p3d";
-        picture = "\murshun_cigs\UI\gear_matches_x_ca";
-
-        ammo = "";
-        count = 10;
-        initSpeed = 0;
-        tracersEvery = 0;
-        lastRoundsTracer = 0;
-        mass = 1;
+        ACE_asItem = 1;
     };
 
     class murshun_cigs_lighter: CA_Magazine {
-        author = "$STR_murshun_cigs_author";
-        scope = 2;
-
-        displayName = "$STR_murshun_cigs_lighter";
-        descriptionShort = "$STR_murshun_cigs_lighter_descr";
-        model = "\murshun_cigs\lighter.p3d";
-        picture = "\murshun_cigs\UI\gear_lighter_x_ca";
-
-        ammo = "";
-        count = 100;
-        initSpeed = 0;
-        tracersEvery = 0;
-        lastRoundsTracer = 0;
-        mass = 2;
+        ACE_asItem = 1;
     };
 
     class murshun_cigs_cigpack: CA_Magazine {
-        author = "$STR_murshun_cigs_author";
-        scope = 2;
-
-        displayName = "$STR_murshun_cigs_cigpack";
-        descriptionShort = "$STR_murshun_cigs_cigpack_descr";
-        model = "\murshun_cigs\cigpack.p3d";
-        picture = "\murshun_cigs\UI\gear_cigpack_x_ca";
-
-        ammo = "";
-        count = 20;
-        initSpeed = 0;
-        tracersEvery = 0;
-        lastRoundsTracer = 0;
-        mass = 2;
+        ACE_asItem = 1;
     };
 };
-*/
 
 /*
 class CfgGlasses {
