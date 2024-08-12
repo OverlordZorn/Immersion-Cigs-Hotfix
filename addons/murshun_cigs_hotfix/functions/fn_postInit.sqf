@@ -26,7 +26,7 @@ _code = {
         call _addVanillaActionsHMD;
 
         player addEventHandler ["Respawn", _addVanillaActionsHMD];
-        
+
     } else {
 
         private _action = ["murshun_cigs_start_someones_cig", localize "STR_murshun_cigs_start_someones_cig", "murshun_cigs\UI\light_cig.paa", {
@@ -57,6 +57,20 @@ _code = {
         player addItem "murshun_cigs_cigpack";
         player addItem "murshun_cigs_lighter";
     };
+
+    ["murshun_cigs_sound", {
+        params ["_sound", "_source"];
+        _source say3D _sound;
+    }] call CBA_fnc_addEventHandler;
+
+    ["murshun_cigs_smoke", {
+		_this call murshun_cigs_fnc_smoke;
+    }] call CBA_fnc_addEventHandler;
+
+    ["murshun_cigs_start_cig", {
+		_this call murshun_cigs_fnc_start_cig;
+    }] call CBA_fnc_addEventHandler;
+
 };
 
 [_code, []] call CBA_fnc_execNextFrame;

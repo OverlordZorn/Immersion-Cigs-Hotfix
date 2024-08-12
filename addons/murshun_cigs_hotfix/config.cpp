@@ -20,7 +20,7 @@ class CfgPatches
 
 		// Optional. If this is 1, if any of requiredAddons[] entry is missing in your game the entire config will be ignored and return no error (but in rpt) so useful to make a compat Mod (Since Arma 3 2.14)
 		skipWhenMissingDependencies = 1;
-        
+
         // List of objects (CfgVehicles classes) contained in the addon. Important also for Zeus content (units and groups)
         units[] = {};
 
@@ -40,7 +40,7 @@ class CfgFunctions
             file = "z\zrn_cig_hotfix\addons\murshun_cigs_hotfix\functions";
 
             tag = "murshun_cigs";
-            
+
             class preInit
             {
                 preInit = 1;
@@ -54,7 +54,6 @@ class CfgFunctions
             class smoke {};
             class anim {};
             class removeItemFromMag {};
-            class playSound {};
             class useItem {};
 
             class start_cig_your {};
