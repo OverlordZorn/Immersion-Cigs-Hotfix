@@ -52,6 +52,7 @@ parameters = [
 executable = "arma3_x64"        # Default: "arma3_x64"
 
 [hemtt.launch.test]
+mission = "test-immersive-cigs-hotfix.Stratis"
 workshop = [
     "450814997", # CBA_A3's Workshop ID
     "463939057", # ACE3
@@ -59,7 +60,6 @@ workshop = [
     "753946944",  # Immersive Cigs Original
 ]
 parameters = [
-    "C:\\Users\\Dennis Zorn\\Documents\\Arma 3 - Other Profiles\\Overlord%20Zorn\\missions\\test-mission\\test-immersive-cigs-hotfix.Stratis\\mission.sqm",
     "-filePatching",
     "-window",
     "-noPause",
