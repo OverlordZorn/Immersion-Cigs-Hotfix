@@ -1,4 +1,5 @@
-class CfgPatches {
+class CfgPatches
+{
 
 	class murshun_cigs_hotfix
 	{
@@ -6,8 +7,9 @@ class CfgPatches {
         name = "Immersive Cigs Hotfix";
 		version = "1.0.0";
 
-		author[]= {"Mr Zorn [CVO]"};
-        url = "http://chronivoron.net";
+		author = "Mr Zorn [CVO]";
+		authors[]= {"Mr Zorn [CVO]"};
+        url = "https://github.com/OverlordZorn/Immersion-Cigs-Hotfix";
 
         // Minimum compatible version. When the game's version is lower, pop-up warning will appear when launching the game.
         requiredVersion = 2.0;
