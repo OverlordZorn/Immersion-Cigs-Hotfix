@@ -58,9 +58,13 @@ if (_maxTime == 0) then { _maxTime = 330; };
 private _sleep1 =           (3.5 + random 2);
 private _sleep2 = _sleep1 + (1.0 + random 1);
 
-private _codeSmoke = {    params ["_unit", "_cigType"];    [_unit, _cigType] remoteExecCall ["murshun_cigs_fnc_smoke"];     };
-[_codeSmoke, [_unit, _cigType], _sleep1] call CBA_fnc_waitAndExecute;
-[_codeSmoke, [_unit, _cigType], _sleep2] call CBA_fnc_waitAndExecute;
+[{
+    ["murshun_cigs_smoke", _this] call CBA_fnc_globalEvent;
+}, [_unit, _cigType], _sleep1] call CBA_fnc_waitAndExecute;
+
+[{
+    ["murshun_cigs_smoke", _this] call CBA_fnc_globalEvent;
+}, [_unit, _cigType], _sleep2] call CBA_fnc_waitAndExecute;
 
 ////////////////////////////////////////
 // Start Recursive Loop

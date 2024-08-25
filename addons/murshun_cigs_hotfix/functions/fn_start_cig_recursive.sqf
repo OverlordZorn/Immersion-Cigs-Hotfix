@@ -3,8 +3,7 @@ params ["_unit","_cigTime","_gogglesCurrent","_hmdCurrent","_cigTypeGear","_cigC
 ////////////////////////////////////////
 // Smoke Particles & Effects
 ////////////////////////////////////////
-
-[_unit, _cigType] remoteExecCall ["murshun_cigs_fnc_smoke"];
+["murshun_cigs_smoke", [_unit, _cigType]] call CBA_fnc_globalEvent;
 _unit setFatigue (getFatigue _unit + 0.01);
 
 

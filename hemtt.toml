@@ -1,0 +1,13 @@
+name = "Immersion Cigs Hotfix"
+prefix = "zrn_cig_hotfix"
+author = "Mr Zorn [CVO]"
+files = [
+    "mod.cpp"
+]
+
+keyname = "{{prefix}}_{{version}}"
+signame = "{{prefix}}_{{version}}"
+
+releasebuild = [
+    "@zip zrn_{{semver.major}}.{{semver.minor}}.{{semver.patch}}"
+]
