@@ -22,10 +22,8 @@ exclude = [
 ]
 
 [version]
-major = 1 # Overrides path when set
-minor = 1
-patch = 0
-git_hash = 4 # Default: 8
+
+git_hash = 0
 
 
 [hemtt.launch.default]

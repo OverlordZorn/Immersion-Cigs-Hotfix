@@ -1,179 +1,33 @@
+#include "script_component.hpp"
 class CfgPatches
 {
-
-	class murshun_cigs_hotfix
+	class ADDON
 	{
 		// Meta information for editor
-        name = "Immersive Cigs Hotfix";
-		version = "1.0.0";
-
+		name = COMPONENT_NAME;
 		author = "Mr Zorn [CVO]";
 		authors[]= {"Mr Zorn [CVO]"};
         url = "https://github.com/OverlordZorn/Immersion-Cigs-Hotfix";
-
         // Minimum compatible version. When the game's version is lower, pop-up warning will appear when launching the game.
-        requiredVersion = 2.0;
-
+        requiredVersion = REQUIRED_VERSION;
         // Required addons, used for setting load order.
         // When any of the addons is missing, pop-up warning will appear when launching the game.
         requiredAddons[] = {"murshun_cigs","cba_common"};
-
 		// Optional. If this is 1, if any of requiredAddons[] entry is missing in your game the entire config will be ignored and return no error (but in rpt) so useful to make a compat Mod (Since Arma 3 2.14)
 		skipWhenMissingDependencies = 1;
-        
         // List of objects (CfgVehicles classes) contained in the addon. Important also for Zeus content (units and groups)
         units[] = {};
-
         // List of weapons (CfgWeapons classes) contained in the addon.
         weapons[] = {};
-
+        VERSION_CONFIG;
 	};
-
 };
 
-class CfgFunctions
-{
-    class murshun_cigs
-    {
-        class functions
-        {
-            file = "z\zrn_cig_hotfix\addons\murshun_cigs_hotfix\functions";
+#include "CfgEventHandlers.hpp"
+#include "CfgFunctions.hpp"
+#include "CfgVehicles.hpp"
+#include "CfgMagazines.hpp"
 
-            tag = "murshun_cigs";
-            
-            class preInit
-            {
-                preInit = 1;
-                recompile = 1;
-            };
-            class postInit
-            {
-                preInit = 1;
-                recompile = 1;
-            };
-            class smoke {};
-            class anim {};
-            class removeItemFromMag {};
-            class playSound {};
-            class useItem {};
-
-            class start_cig_your {};
-            class start_cig_their {};
-
-            class start_cig {};
-            class start_cig_recursive {};
-
-            class stop_cig {};
-            class take_cig_from_pack {};
-        };
-    };
-};
-
-
-class CfgVehicles
-{
-    class Man;
-    class CAManBase: Man
-    {
-        class ACE_SelfActions
-        {
-            class ACE_Equipment {
-                class murshun_cigs_start_cig
-                {
-                    displayName = "$STR_murshun_cigs_start_cig";
-                    condition = "[_player] call immersion_cigs_canStartSmoking";
-                    statement = "[_player] call murshun_cigs_fnc_start_cig_your";
-                    showDisabled = 0;
-                    exceptions[] = {"isNotInside", "isNotSitting"};
-                    icon = "murshun_cigs\UI\light_cig.paa";
-                };
-                class murshun_cigs_stop_cig
-                {
-                    displayName = "$STR_murshun_cigs_stop_cig";
-                    condition = "[_player] call immersion_cigs_canStopSmoking";
-                    statement = "[_player] call murshun_cigs_fnc_stop_cig";
-                    showDisabled = 0;
-                    exceptions[] = {"isNotInside", "isNotSitting"};
-                    icon = "murshun_cigs\UI\light_cig.paa";
-                };
-                class murshun_cigs_take_cig_from_pack
-                {
-                    displayName = "$STR_murshun_cigs_take_cig_from_pack";
-                    condition = "[_player] call immersion_cigs_canTakeCigFromPack";
-                    statement = "[_player] call murshun_cigs_fnc_take_cig_from_pack";
-                    showDisabled = 0;
-                    exceptions[] = {"isNotInside", "isNotSitting"};
-                    icon = "murshun_cigs\UI\take_cig.paa";
-                };
-            };
-        };
-    };
-
-    /*
-    class WeaponHolder_Single_limited_item_F;
-
-    class murshun_cigs_matchesItem: WeaponHolder_Single_limited_item_F {
-        scope = 2;
-        scopeCurator = 2;
-        displayName = "$STR_murshun_cigs_matches";
-        author = "$STR_murshun_cigs_author";
-        vehicleClass = "Magazines";
-
-        class TransportMagazines {
-            class murshun_cigs_matches {
-                magazine = "murshun_cigs_matches";
-                count = 1;
-            };
-        };
-    };
-
-    class murshun_cigs_lighterItem: WeaponHolder_Single_limited_item_F {
-        scope = 2;
-        scopeCurator = 2;
-        displayName = "$STR_murshun_cigs_lighter";
-        author = "$STR_murshun_cigs_author";
-        vehicleClass = "Magazines";
-
-        class TransportMagazines {
-            class murshun_cigs_lighter {
-                magazine = "murshun_cigs_lighter";
-                count = 1;
-            };
-        };
-    };
-
-    class murshun_cigs_cigpackItem: WeaponHolder_Single_limited_item_F {
-        scope = 2;
-        scopeCurator = 2;
-        displayName = "$STR_murshun_cigs_cigpack";
-        author = "$STR_murshun_cigs_author";
-        vehicleClass = "Magazines";
-
-        class TransportMagazines {
-            class murshun_cigs_cigpack {
-                magazine = "murshun_cigs_cigpack";
-                count = 1;
-            };
-        };
-    };
-
-    */
-};
-
-class CfgMagazines {
-    class CA_Magazine;
-    class murshun_cigs_matches: CA_Magazine {
-        ACE_asItem = 1;
-    };
-
-    class murshun_cigs_lighter: CA_Magazine {
-        ACE_asItem = 1;
-    };
-
-    class murshun_cigs_cigpack: CA_Magazine {
-        ACE_asItem = 1;
-    };
-};
 
 /*
 class CfgGlasses {
